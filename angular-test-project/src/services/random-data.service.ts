@@ -7,6 +7,8 @@ import { catchError, map, retryWhen, delay, take } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class RandomDataService {
+  private readonly apiKey = '51160b58-5bca-4b1a-8cdf-e42a570b20f1';
+  private readonly apiUrl = 'https://api.random.org/json-rpc/2/invoke';
   private readonly dataUrl =
     'https://random-data-api.com/api/number/random_number?size=6';
 
@@ -35,45 +37,23 @@ export class RandomDataService {
     smiles: number;
     percentage: number[];
   }> {
-    if (this.cachedData) {
-      return new Observable((observer) => {
-        observer.next(this.cachedData);
-        observer.complete();
-      });
-    } else {
-      return this.http.get<any[]>(this.dataUrl).pipe(
-        map((response) => {
-          const likes = response[0].value;
-          const loves = response[1].value;
-          const smiles = response[2].value;
-          const percentage = [
-            response[3].value,
-            response[4].value,
-            response[5].value,
-          ];
-          const data = { likes, loves, smiles, percentage };
-          this.cachedData = data;
-          return data;
-        }),
-        retryWhen((errors) =>
-          errors.pipe(
-            delay(1000),
-            take(1),
-            catchError((error) => {
-              console.error('Error fetching data:', error);
-              return throwError(
-                'Something went wrong; please try again later.'
-              );
-            })
-          )
-        ),
-        catchError(this.handleError)
-      );
-    }
-  }
+    return this.http.get<any[]>(this.dataUrl).pipe(
+      map((response) => {
+        const likes = response[0].number;
+        const loves = response[1].number;
+        const smiles = response[2].number;
+        const percentage = [
+          response[3].number,
+          response[4].number,
+          response[5].number,
+        ];
 
-  private handleError(error: any) {
-    console.error('An error occurred:', error);
-    return throwError('Something went wrong; please try again later.');
+        return { likes, loves, smiles, percentage };
+      }),
+      catchError((error) => {
+        console.error('Error fetching data:', error);
+        return throwError('Something went wrong; please try again later.');
+      })
+    );
   }
 }

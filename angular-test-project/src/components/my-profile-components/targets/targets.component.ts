@@ -6,13 +6,11 @@ import { RandomDataService } from 'src/services/random-data.service';
   templateUrl: './targets.component.html',
   styleUrls: ['./targets.component.css'],
 })
-export class TargetsComponent implements OnInit {
+export class TargetsComponent {
   viewsTarget: number | undefined;
   incomeTarget: number | undefined;
   followersTarget: number | undefined;
-
-  constructor(private randomDataService: RandomDataService) {}
-  ngOnInit(): void {
+  /* ngOnInit(): void {
     if (this.randomDataService.cachedData !== undefined) {
       const percentage = this.randomDataService.cachedData.percentage;
       this.viewsTarget = percentage[0];
@@ -25,5 +23,7 @@ export class TargetsComponent implements OnInit {
         this.followersTarget = data.percentage[2];
       });
     }
-  }
+  }*/
+
+  constructor(private randomDataService: RandomDataService) {}
 }
