@@ -12,8 +12,12 @@ export class SmilesComponent implements OnInit {
   constructor(private randomDataService: RandomDataService) {}
 
   ngOnInit(): void {
-    this.randomDataService.fetchData().subscribe((data) => {
-      this.smiles = data.smiles;
-    });
+    if (this.randomDataService.cachedData !== undefined) {
+      this.smiles = this.randomDataService.cachedData.smiles;
+    } else {
+      this.randomDataService.fetchData().subscribe((data) => {
+        this.smiles = data.smiles;
+      });
+    }
   }
 }

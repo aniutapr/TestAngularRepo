@@ -12,12 +12,18 @@ export class TargetsComponent implements OnInit {
   followersTarget: number | undefined;
 
   constructor(private randomDataService: RandomDataService) {}
-
   ngOnInit(): void {
-    this.randomDataService.fetchData().subscribe((data) => {
-      this.viewsTarget = data.percentage[0];
-      this.incomeTarget = data.percentage[1];
-      this.followersTarget = data.percentage[2];
-    });
+    if (this.randomDataService.cachedData !== undefined) {
+      const percentage = this.randomDataService.cachedData.percentage;
+      this.viewsTarget = percentage[0];
+      this.incomeTarget = percentage[1];
+      this.followersTarget = percentage[2];
+    } else {
+      this.randomDataService.fetchData().subscribe((data) => {
+        this.viewsTarget = data.percentage[0];
+        this.incomeTarget = data.percentage[1];
+        this.followersTarget = data.percentage[2];
+      });
+    }
   }
 }

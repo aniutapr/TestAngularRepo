@@ -10,10 +10,13 @@ export class LikesComponent implements OnInit {
   likes: number | undefined;
 
   constructor(private randomDataService: RandomDataService) {}
-
   ngOnInit(): void {
-    this.randomDataService.fetchData().subscribe((data) => {
-      this.likes = data.likes;
-    });
+    if (this.randomDataService.cachedData !== undefined) {
+      this.likes = this.randomDataService.cachedData.likes;
+    } else {
+      this.randomDataService.fetchData().subscribe((data) => {
+        this.likes = data.likes;
+      });
+    }
   }
 }

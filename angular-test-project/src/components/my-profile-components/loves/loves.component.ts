@@ -12,8 +12,12 @@ export class LovesComponent implements OnInit {
   constructor(private randomDataService: RandomDataService) {}
 
   ngOnInit(): void {
-    this.randomDataService.fetchData().subscribe((data) => {
-      this.loves = data.loves;
-    });
+    if (this.randomDataService.cachedData !== undefined) {
+      this.loves = this.randomDataService.cachedData.loves;
+    } else {
+      this.randomDataService.fetchData().subscribe((data) => {
+        this.loves = data.loves;
+      });
+    }
   }
 }
