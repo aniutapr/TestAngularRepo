@@ -11,7 +11,10 @@
           </p>
         </div>
         <div class="blue-bar w-2/3 bg-blue-200 h-2 rounded-lg mt-2">
-          <div class="bg-blue-500 blue-bar h-2 rounded-lg w-3"></div>
+          <div
+            class="bg-blue-500 blue-bar h-2 rounded-lg"
+            [ngStyle]="{ 'width.%': viewsTarget }"
+          ></div>
         </div>
       </div>
       <div class="flex items-center py-4">
@@ -22,7 +25,10 @@
           </p>
         </div>
         <div class="yellow-bar w-2/3 bg-yellow-200 h-2 rounded-lg mt-2">
-          <div class="bg-yellow-500 yellow-bar h-2 rounded-lg w-3"></div>
+          <div
+            class="bg-yellow-500 yellow-bar h-2 rounded-lg"
+            [ngStyle]="{ 'width.%': followersTarget }"
+          ></div>
         </div>
       </div>
       <div class="flex items-center py-4">
@@ -33,7 +39,10 @@
           </p>
         </div>
         <div class="red-bar w-2/3 bg-red-200 h-2 rounded-lg mt-2">
-          <div class="bg-red-500 red-bar h-2 rounded-lg"></div>
+          <div
+            class="bg-red-500 red-bar h-2 rounded-lg"
+            [ngStyle]="{ 'width.%': incomeTarget }"
+          ></div>
         </div>
       </div>
     </div>
