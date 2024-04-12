@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.form-group {
+  display: flex;
+  margin-bottom: 15px;
+  align-items: center;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.btn {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+}
+.btn-sign-up {
+  background-color: #fff;
+  color: #007bff;
+}
+.btn-sign-up:hover {
+  background-color: #fafcff;
+}
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.login-page {
+  display: flex;
+  height: 100%;
+}
+
+.left-side {
+  flex: 1.5;
+  text-align: left;
+}
+
+.left-side img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.right-side {
+  flex: 1;
+  text-align: left;
+}
+.right-side-form {
+  display: block;
+  align-items: center;
+  width: 45%;
+}
+H2 {
+  text-align: center;
+}

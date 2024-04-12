@@ -1,0 +1,64 @@
+<div class="flex h-screen bg-slate-300">
+  <div class="content flex-1 flex flex-col p-4 bg-slate-100">
+    <div class="grid grid-cols-4 mt-0 gap-10">
+      <div class="col-start-1 col-end-2 bg-white mr-16 pl-7 mt-0">
+        <menu-component></menu-component>
+      </div>
+      <div class="col-start-2 col-end-3">
+        <div class="navbar-menu mb-20"></div>
+        <div class="mb-12">
+          <h2 class="text-2xl font-extrabold text-gray-600 mb-8">
+            Hi, {{ userEmail }},
+          </h2>
+          <h2 class="text-3xl font-light text-gray-600 mb-8">Welcome back!</h2>
+          <p class="mt-6 mb-6 text-gray-500 font-light">
+            This page is designed to give some important information about the
+            application. Let's make someting together!
+          </p>
+          <img
+            src="../../assets/img/profile.png"
+            alt="Smiles Icon"
+            class="h-80 mr-2"
+          />
+        </div>
+
+        <div
+          class="p-4 rounded-xl mt-4 mb-8 text-slate-100 bg-blue-600 text-center object-center"
+        >
+          <p class="text-lg font-bold mb-6">Congratulations {{ userEmail }}</p>
+          <p class="text-slate-100 mb-7 font-light">
+            You have completed 75% of your profile. Keep up the good work!
+          </p>
+          <div class="flex items-center">
+            <button
+              class="bg-slate-100 hover:bg-slate-200 text-black font-normal text-md py-1.5 px-3 ml-28 view-button rounded-xl"
+            >
+              View Profile
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-start-3 col-end-4">
+        <div class="navbar-menu mb-20"></div>
+        <likes-component></likes-component>
+        <smiles-component></smiles-component>
+        <loves-component></loves-component>
+        <views-component></views-component>
+      </div>
+      <div class="col-start-4 col-end-5">
+        <div class="navbar-menu mb-14 flex justify-end">
+          <a
+            href="/login"
+            class="menu-item flex items-center"
+            (click)="logout()"
+            style="cursor: pointer"
+          >
+            <i class="fas fa-sign-out-alt mr-4"></i> Logout
+          </a>
+        </div>
+        <targets-component></targets-component>
+        <meetings-component></meetings-component>
+      </div>
+    </div>
+  </div>
+</div>

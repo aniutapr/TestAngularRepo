@@ -1,0 +1,18 @@
+/* targets.component.css (or any appropriate CSS file) */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(
+    4,
+    1fr
+  ); /* Each column occupies an equal fraction of the available space */
+  gap: 4px; /* Adjust the gap between columns if needed */
+}
+
+.col-start-1,
+.col-start-2,
+.col-start-3,
+.col-start-4 {
+  /* Remove col-end classes as each column will span the entire width */
+  grid-column: span 1; /* Each column spans 1 grid track */
+}
