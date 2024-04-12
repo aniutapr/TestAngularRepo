@@ -43,9 +43,9 @@ export class RandomDataService {
         const loves = response[1].number;
         const smiles = response[2].number;
         const percentage = [
-          response[3].number,
-          response[4].number,
-          response[5].number,
+          response[3].decimal,
+          response[4].decimal,
+          response[5].decimal,
         ];
 
         return { likes, loves, smiles, percentage };

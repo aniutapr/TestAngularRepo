@@ -10,7 +10,7 @@ export class TargetsComponent {
   viewsTarget: number | undefined;
   incomeTarget: number | undefined;
   followersTarget: number | undefined;
-  /* ngOnInit(): void {
+  ngOnInit(): void {
     if (this.randomDataService.cachedData !== undefined) {
       const percentage = this.randomDataService.cachedData.percentage;
       this.viewsTarget = percentage[0];
@@ -23,7 +23,7 @@ export class TargetsComponent {
         this.followersTarget = data.percentage[2];
       });
     }
-  }*/
+  }
 
   constructor(private randomDataService: RandomDataService) {}
 }
